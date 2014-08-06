@@ -7,20 +7,22 @@ def input_students
 		puts "Please use the following instructions"
 		puts "Please enter the name of the new Student:"
 		name = gets.chomp
+		puts "Please enter cohort:"
+		cohort = gets.chomp
 		puts "Please enter the student's age:"
 		age = gets.chomp
 		puts "Please enter the student's country of origin:"
 		country = gets.chomp
 		puts "Do you want to enter another student to the directory? yes or no"
 		more_student = gets.chomp
-		add_student(name,age,country)
+		add_student(name,age,cohort,country)
 	end
 	@students
 end
 	
 
-def add_student(name, age, country)
-		@students << {:name => name, :cohort => :August, :age => age, :country => country}
+def add_student(name, age, cohort, country)
+		@students << {:name => name, :cohort => cohort, :age => age, :country => country}
 		puts "Now we have #{@students.length} students"
 end
 
@@ -34,7 +36,7 @@ def print_names(students)
 	counter = 0
 	while counter < n
 		student = students[counter]
-		puts "#{counter + 1} #{student[:name]} #{student[:cohort]} cohort #{student[:age]} #{student[:country]}".center(70, '******')
+		puts "#{counter + 1}. #{student[:name]} | #{student[:cohort]} | #{student[:age]} | #{student[:country]}".center(70, '******')
 		counter += 1
 	end
 end
