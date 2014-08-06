@@ -27,7 +27,7 @@ def add_student(name, age, cohort, country)
 end
 
 def print_header
-	puts "The students of Makers Academy"
+	puts "The students of Makers Academy".centre(70, '******')
 	puts "______________"
 end
 
