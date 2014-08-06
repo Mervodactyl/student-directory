@@ -34,7 +34,7 @@ def print_names(students)
 	counter = 0
 	while counter < n
 		student = students[counter]
-		puts "#{counter + 1} #{student[:name]} #{student[:cohort]} cohort #{student[:age]} #{student[:country]}"
+		puts "#{counter + 1} #{student[:name]} #{student[:cohort]} cohort #{student[:age]} #{student[:country]}".center(50)
 		counter += 1
 	end
 end
