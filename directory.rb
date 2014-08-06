@@ -7,12 +7,16 @@ def input_students
 		puts "Please use the following instructions"
 		puts "Please enter the name of the new Student:"
 		name = gets.chomp
+			name = "I see you must be a secret agent" if name == ""
 		puts "Please enter cohort:"
 		cohort = gets.chomp
+			cohort = "I already know where you live" if cohort == ""
 		puts "Please enter the student's age:"
 		age = gets.chomp
+			age = "You must be embarassed of your wrinkly butt" if age == ""
 		puts "Please enter the student's country of origin:"
 		country = gets.chomp
+			country = "why do you never take me anywhere nice?" if country == ""
 		puts "Do you want to enter another student to the directory? yes or no"
 		more_student = gets.chomp
 		add_student(name,age,cohort,country)
