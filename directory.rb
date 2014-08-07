@@ -1,4 +1,5 @@
 # lets put all the students into an array
+ 	MONTHS = %w(January Febuary March April May June July August September October November December) 
 
 def input_students
 	@students = []
@@ -9,7 +10,7 @@ def input_students
 		name = get_information
 			name = "I see you must be a secret agent" if name == ""
 		puts "Please enter cohort:"
-		cohort = get_information
+		cohort = get_cohort
 			cohort = "I already know where you live" if cohort == ""
 		puts "Please enter the student's age:"
 		age = get_information
@@ -24,12 +25,20 @@ def input_students
 	@students
 end
 
+def get_cohort
+	info_given = gets.chomp
+	until MONTHS.include? info_given.downcase.capitalize
+		puts "sorry that month doest exist, please enter it again"
+		info_given = gets.chomp
+	end
+	info_given	
+end
 
 def get_information
 	entered_value = gets.chomp
 	puts "You entered #{entered_value}, are you ok with that? Y or N"
 	ya_or_nay = gets.chomp
-	while ya_or_nay.downcase.start_with?("n")
+	until ya_or_nay.downcase.start_with?("y")
 		puts "well enter it again then"
 		entered_value = gets.chomp
 		puts "You entered #{entered_value}, are you ok with that? Y or N"
