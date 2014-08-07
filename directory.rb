@@ -3,25 +3,39 @@
 def input_students
 	@students = []
 	more_student = "yes"
-	until more_student == "no"
+	until more_student == "no" 
 		puts "Please use the following instructions"
 		puts "Please enter the name of the new Student:"
-		name = gets.chomp
+		name = get_information
 			name = "I see you must be a secret agent" if name == ""
 		puts "Please enter cohort:"
-		cohort = gets.chomp
+		cohort = get_information
 			cohort = "I already know where you live" if cohort == ""
 		puts "Please enter the student's age:"
-		age = gets.chomp
+		age = get_information
 			age = "You must be embarassed of your wrinkly butt" if age == ""
 		puts "Please enter the student's country of origin:"
-		country = gets.chomp
+		country = get_information
 			country = "why do you never take me anywhere nice?" if country == ""
 		puts "Do you want to enter another student to the directory? yes or no"
-		more_student = gets.chomp
+		more_student = get_information
 		add_student(name,age,cohort,country)
 	end
 	@students
+end
+
+
+def get_information
+	entered_value = gets.chomp
+	puts "You entered #{entered_value}, are you ok with that? Y or N"
+	ya_or_nay = gets.chomp
+	while ya_or_nay.downcase.start_with?("n")
+		puts "well enter it again then"
+		entered_value = gets.chomp
+		puts "You entered #{entered_value}, are you ok with that? Y or N"
+		ya_or_nay = gets.chomp
+	end
+	entered_value
 end
 	
 
@@ -48,6 +62,7 @@ end
 def print_footer(names)
 	puts "Overall, we have #{names.length} great students"
 end
+
 
 # nothing happens until we call the methods
 students = input_students
